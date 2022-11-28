@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
+import React, { useState, StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import Form from './Form';
 import Counter from './Counter';
+import Users from './Users';
 
 import './style.css';
 
@@ -9,15 +10,16 @@ function App() {
   const [isVisible, setIsVisible] = useState(true);
   return (
     <div>
-      <Form />
-      <br />
-      <br />
-      <hr />
-      <br />
-      {isVisible && <Counter />}
-      <button onClick={() => setIsVisible(!isVisible)}>Göster/Gizle</button>
+      <Users />
     </div>
   );
 }
 
-render(<App />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
