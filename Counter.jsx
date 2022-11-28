@@ -5,8 +5,13 @@ function Counter() {
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
-    console.log('bir state değişti');
-  });
+    let interval = setInterval(() => {
+      console.log('Interval');
+      setCount((prev) => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div>
       <h1>{count}</h1>
