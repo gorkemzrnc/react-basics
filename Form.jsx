@@ -28,13 +28,11 @@ function Form() {
 
       <div>
         <div>Cinsiyet: </div>
-        <select value={form.gender} onChange={handleChange}>
+        <select value={form.gender} name="gender" onChange={handleChange}>
           <option value="0">Erkek</option>
           <option value="1">Kadın</option>
         </select>
       </div>
-
-      <hr />
 
       <div>
         İsim:
